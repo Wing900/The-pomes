@@ -3,6 +3,7 @@
 <html lang="zh-CN">
 
 <head>    
+    <!--    /* 自适应手机屏幕 */-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,6 +151,27 @@
     </style>
 </head>
 <body>
+    <!--    /* 自适应手机屏幕 */-->
+    <script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '16px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+        recalc()
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
+
 <!--    /* 引入js文件-落花 */-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Ukenn2112/UkennWeb@3.0/index/web.js"></script>
 
