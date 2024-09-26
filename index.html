@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>蝶恋花</title>
+    <title>蝶恋花😊</title>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <style>
         body, html {
@@ -18,12 +18,14 @@
             color: #333;
         }
         .card {
-            width: 400px;
-            height: 600px;
+            width: 90vw;
+            max-width: 400px;
+            height: 135vw;
+            max-height: 600px;
             background: linear-gradient(135deg, #FFE6E6, #FFF0F5);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 40px;
+            padding: 10vw;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -36,29 +38,31 @@
             justify-content: flex-start;
             align-items: flex-start;
             height: 100%;
-            margin-top: 40px;
+            margin-top: 10vw;
         }
         .poem-line {
-            font-size: 36px;
+            font-size: 8vw;
+            max-font-size: 36px;
             writing-mode: vertical-rl;
             text-orientation: upright;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            margin-left: 30px;
+            margin-left: 7.5vw;
             z-index: 2;
         }
         .poem-line:first-child {
-            margin-top: -20px;
+            margin-top: -5vw;
         }
         .poem-line:last-child {
-            margin-top: 60px;
+            margin-top: 15vw;
         }
         .title {
             position: absolute;
-            left: 20px;
-            bottom: 40px;
+            left: 5vw;
+            bottom: 10vw;
             writing-mode: vertical-rl;
             text-orientation: upright;
-            font-size: 32px;
+            font-size: 7vw;
+            max-font-size: 32px;
             color: #555;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             z-index: 2;
@@ -66,16 +70,18 @@
         .title::before {
             content: "︱";
             display: block;
-            margin-bottom: 10px;
-            font-size: 24px;
+            margin-bottom: 2.5vw;
+            font-size: 6vw;
+            max-font-size: 24px;
         }
         .author {
             position: absolute;
-            right: 20px;
-            bottom: 40px;
+            right: 5vw;
+            bottom: 10vw;
             writing-mode: vertical-rl;
             text-orientation: upright;
-            font-size: 32px;
+            font-size: 7vw;
+            max-font-size: 32px;
             color: #555;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             z-index: 2;
@@ -106,12 +112,14 @@
         }
         .swing {
             position: absolute;
-            bottom: 100px;
-            right: 60px;
-            width: 100px;
-            height: 2px;
+            bottom: 25vw;
+            right: 15vw;
+            width: 25vw;
+            max-width: 100px;
+            height: 0.5vw;
+            max-height: 2px;
             background-color: #8B4513;
-            transform-origin: 50% -200px;
+            transform-origin: 50% -50vw;
             animation: swing 5s ease-in-out infinite;
             z-index: 1;
         }
@@ -119,15 +127,44 @@
             0%, 100% { transform: rotate(10deg); }
             50% { transform: rotate(-10deg); }
         }
+        @media (min-width: 600px) {
+            .card {
+                padding: 40px;
+            }
+            .poem-line {
+                font-size: 36px;
+                margin-left: 30px;
+            }
+            .poem-line:first-child {
+                margin-top: -20px;
+            }
+            .poem-line:last-child {
+                margin-top: 60px;
+            }
+            .title, .author {
+                font-size: 32px;
+            }
+            .title::before {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            .swing {
+                bottom: 100px;
+                right: 60px;
+                width: 100px;
+                height: 2px;
+                transform-origin: 50% -200px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="flower-petals">
-            <div class="petal" style="left: 20%; top: -10%; width: 20px; height: 20px;"></div>
-            <div class="petal" style="left: 40%; top: -5%; width: 15px; height: 15px;"></div>
-            <div class="petal" style="left: 60%; top: -8%; width: 18px; height: 18px;"></div>
-            <div class="petal" style="left: 80%; top: -12%; width: 22px; height: 22px;"></div>
+            <div class="petal" style="left: 20%; top: -10%; width: 5vw; height: 5vw; max-width: 20px; max-height: 20px;"></div>
+            <div class="petal" style="left: 40%; top: -5%; width: 3.75vw; height: 3.75vw; max-width: 15px; max-height: 15px;"></div>
+            <div class="petal" style="left: 60%; top: -8%; width: 4.5vw; height: 4.5vw; max-width: 18px; max-height: 18px;"></div>
+            <div class="petal" style="left: 80%; top: -12%; width: 5.5vw; height: 5.5vw; max-width: 22px; max-height: 22px;"></div>
         </div>
         <div class="swing"></div>
         <div class="poem">
@@ -145,8 +182,11 @@
                 petal.classList.add('petal');
                 petal.style.left = `${Math.random() * 100}%`;
                 petal.style.top = `${Math.random() * 100}%`;
-                petal.style.width = `${Math.random() * 10 + 10}px`;
-                petal.style.height = petal.style.width;
+                const size = Math.random() * 2.5 + 2.5;
+                petal.style.width = `${size}vw`;
+                petal.style.height = `${size}vw`;
+                petal.style.maxWidth = `${size * 4}px`;
+                petal.style.maxHeight = `${size * 4}px`;
                 petal.style.animationDelay = `${Math.random() * 10}s`;
                 flowerPetals.appendChild(petal);
             }
